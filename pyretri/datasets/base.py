@@ -24,10 +24,9 @@ def download_img(imgurl, save_dir, sub_dir=None):
             os.mkdir(save_dir)
 
     try:
-        urllib.request.urlretrieve(
-            imgurl, '{}/{}'.format(save_dir,
-                                   imgurl.split('/')[-1]))
+        img_path = '{}/{}'.format(save_dir, imgurl.split('/')[-1])
+        if not os.path.exists(img_path):
+            urllib.request.urlretrieve(imgurl, img_path)
         return True
-    except expression as identifier:
-        print(identifier)
+    except:
         return False
