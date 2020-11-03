@@ -1,6 +1,7 @@
 import os
 import json
 import argparse
+from data_process.base import persist_2_json
 
 
 def get_gt_json(request_dir, gt_base_dir, data_base_dir):
@@ -21,11 +22,6 @@ def get_gt_json(request_dir, gt_base_dir, data_base_dir):
 
             gt_json[img_name].append(item_base_img)
     return gt_json
-
-
-def persist_2_json(gt_json, save_path):
-    with open(save_path, 'w') as f:
-        json.dump(gt_json, f)
 
 
 def parse_args():

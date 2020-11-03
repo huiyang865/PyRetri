@@ -14,12 +14,30 @@ from torchvision import models
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='A tool box for deep learning-based image retrieval')
+    parser = argparse.ArgumentParser(
+        description='A tool box for deep learning-based image retrieval')
     parser.add_argument('opts', default=None, nargs=argparse.REMAINDER)
-    parser.add_argument('--data_json', '-dj', default=None, type=str, help='json file for dataset to be extracted')
-    parser.add_argument('--save_path', '-sp', default=None, type=str, help='save path for features')
-    parser.add_argument('--config_file', '-cfg', default=None, metavar='FILE', type=str, help='path to config file')
-    parser.add_argument('--save_interval', '-si', default=5000, type=int, help='number of features saved in one part file')
+    parser.add_argument('--data_json',
+                        '-dj',
+                        default=None,
+                        type=str,
+                        help='json file for dataset to be extracted')
+    parser.add_argument('--save_path',
+                        '-sp',
+                        default=None,
+                        type=str,
+                        help='save path for features')
+    parser.add_argument('--config_file',
+                        '-cfg',
+                        default=None,
+                        metavar='FILE',
+                        type=str,
+                        help='path to config file')
+    parser.add_argument('--save_interval',
+                        '-si',
+                        default=5000,
+                        type=int,
+                        help='number of features saved in one part file')
     args = parser.parse_args()
     return args
 
