@@ -1,7 +1,7 @@
 import os
 import json
 import argparse
-from data_process.base import persist_2_json
+from main.daneng.base import persist_2_json
 
 
 def get_gt_json(request_dir, gt_base_dir, data_base_dir):
