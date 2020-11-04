@@ -25,10 +25,10 @@ class EvaluateHelper:
             mAP (float): mean average precision.
             recall_at_k (Dict): recall at the k position.
         """
-        repr_str = "mAP: {:.1f}\n".format(mAP)
+        repr_str = "mAP: {:.6f}\n".format(mAP)
 
         for k in self.recall_k:
-            repr_str += "R@{}: {:.1f}\t".format(k, recall_at_k[k])
+            repr_str += "R@{}: {:.6f}\t".format(k, recall_at_k[k])
 
         print('--------------- Retrieval Evaluation ------------')
         print(repr_str)

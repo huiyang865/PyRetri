@@ -19,7 +19,7 @@ class OverAll(EvaluatorBase):
         recall_k (sequence): positions of recalls to be calculated.
     """
     default_hyper_params = {
-        "recall_k": [1, 2, 4, 8],
+        "recall_k": [1, 5, 10, 20],
     }
 
     def __init__(self, hps: Dict or None = None):

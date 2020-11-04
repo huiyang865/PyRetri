@@ -19,17 +19,17 @@ def parse_args():
     parser.add_argument('opts', default=None, nargs=argparse.REMAINDER)
     parser.add_argument('--data_json',
                         '-dj',
-                        default='/home/yanghui/yanghui/data/image_retrieval/caltech101/caltech_query.json',
+                        default='/home/yanghui/yanghui/data/image_retrieval/daneng/imgs/daneng_gallery.json',
                         type=str,
                         help='json file for dataset to be extracted')
     parser.add_argument('--save_path',
                         '-sp',
-                        default='/home/yanghui/yanghui/data/image_retrieval/caltech101/features/query',
+                        default='/home/yanghui/yanghui/data/image_retrieval/daneng/imgs/features/gallery',
                         type=str,
                         help='save path for features')
     parser.add_argument('--config_file',
                         '-cfg',
-                        default='../configs/caltech.yaml',
+                        default='./configs/daneng.yaml',
                         metavar='FILE',
                         type=str,
                         help='path to config file')

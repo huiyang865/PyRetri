@@ -18,7 +18,7 @@ def parse_args():
     parser.add_argument('opts', default=None, nargs=argparse.REMAINDER)
     parser.add_argument('--config_file',
                         '-cfg',
-                        default='configs/caltech.yaml',
+                        default='configs/daneng.yaml',
                         metavar='FILE',
                         type=str,
                         help='path to config file')
@@ -38,7 +38,7 @@ def main():
     cfg = setup_cfg(cfg, args.config_file, args.opts)
 
     # set path for single image
-    path = '/home/yanghui/yanghui/data/image_retrieval/caltech101/query/accordion/image_0001.jpg'
+    path = '/home/yanghui/yanghui/data/image_retrieval/daneng/imgs/query/097da2aaae629fd6f076b47aad5a5cad/097da2aaae629fd6f076b47aad5a5cad.jpg'
 
     # build transformers
     transformers = build_transformers(cfg.datasets.transformers)
@@ -71,7 +71,7 @@ def main():
         img_fea, img_fea_info, gallery_fea)
 
     index_helper.save_topk_retrieved_images(
-        '/home/yanghui/yanghui/data/image_retrieval/caltech101/retrieved_images/',
+        '/home/yanghui/yanghui/data/image_retrieval/daneng/imgs/retrieved_images/',
         index_result_info[0], 5, gallery_info)
 
     print('single index have done!')

@@ -7,6 +7,7 @@ main/make_data_json.py
 main/single_index.py
 main/split_dataset.py
 main/daneng/__init__.py
+main/daneng/check_img.py
 main/daneng/make_gt_json_from_directory.py
 main/daneng/make_gt_json_from_excel.py
 pyretri/__init__.py

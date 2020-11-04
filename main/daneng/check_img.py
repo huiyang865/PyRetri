@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-img_dir = '/home/yanghui/yanghui/data/image_retrieval/daneng/imgs/query'
+img_dir = '/home/yanghui/yanghui/data/image_retrieval/daneng/imgs_v2/query'
 
 for item_dir in os.listdir(img_dir):
     dir_path = '{}/{}'.format(img_dir, item_dir)
