@@ -12,11 +12,11 @@ def parse_args():
         '--xlsx_file_path',
         '-xf',
         default=
-        '/home/yanghui/yanghui/data/image_retrieval/daneng/7月防作弊对应数据样本v1.0.xlsx',
+        '/home/yanghui/yanghui/data/image_retrieval/daneng/7月防作弊对应数据样本v1.2.xlsx',
         help='Input dir of xlsx file')
     parser.add_argument('--sheet_name',
                         '-sn',
-                        default='Sheet3',
+                        default='Sheet4',
                         help='sheet name which sheet need to be process')
     parser.add_argument('--usecols',
                         '-c',
@@ -26,13 +26,13 @@ def parse_args():
     parser.add_argument(
         '--query_save_dir',
         '-qs',
-        default='/home/yanghui/yanghui/data/image_retrieval/daneng/imgs/query',
+        default='/home/yanghui/yanghui/data/image_retrieval/daneng/imgs_v2/query',
         help='download img and save path as query')
     parser.add_argument(
         '--gallery_save_dir',
         '-gs',
         default=
-        '/home/yanghui/yanghui/data/image_retrieval/daneng/imgs/gallery',
+        '/home/yanghui/yanghui/data/image_retrieval/daneng/imgs_v2/gallery',
         help='download img and save path as gallery')
     parser.add_argument('--img_save_dir',
                         '-is',
@@ -41,7 +41,7 @@ def parse_args():
     parser.add_argument(
         '--json_save_path',
         '-js',
-        default='/home/yanghui/yanghui/data/image_retrieval/daneng/daneng.json',
+        default='/home/yanghui/yanghui/data/image_retrieval/daneng/daneng_v2.json',
         help='Save path for the json results')
     parser.add_argument('--is_multi_process',
                         '-is_m',
@@ -74,16 +74,9 @@ def add_request_2_dict(result_dict, similar_img_list, request_img,
 def download_img_with_multiprocess(imgs_list):
     if len(imgs_list) >= 100:
         threadPool = ThreadPoolExecutor(max_workers=len(imgs_list))
-        pool_result_list = []
         for img_path, save_dir, sub_dir in imgs_list:
-            r = threadPool.submit(download_img, img_path, save_dir, sub_dir)
-            pool_result_list.append(r)
-        while len(pool_result_list) > 0:
-            time.sleep(1)
-            print(len(pool_result_list))
-            for item_r in pool_result_list:
-                if item_r.done():
-                    pool_result_list.remove(item_r)
+            threadPool.submit(download_img, img_path, save_dir, sub_dir)
+        threadPool.shutdown(wait=True)
         imgs_list.clear()
     return imgs_list
 
@@ -151,4 +144,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

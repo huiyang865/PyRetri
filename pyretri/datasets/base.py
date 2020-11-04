@@ -1,4 +1,5 @@
 import os
+import cv2
 import json
 import urllib.request
 
@@ -25,7 +26,8 @@ def download_img(imgurl, save_dir, sub_dir=None):
 
     try:
         img_path = '{}/{}'.format(save_dir, imgurl.split('/')[-1])
-        if not os.path.exists(img_path):
+        img = cv2.imread(img_path)
+        if img is None:
             urllib.request.urlretrieve(imgurl, img_path)
         return True
     except:
