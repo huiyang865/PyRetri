@@ -2,11 +2,11 @@
 
 from yacs.config import CfgNode
 
-from ..datasets import get_datasets_cfg
-from ..models import get_model_cfg
-from ..extract import get_extract_cfg
-from ..index import get_index_cfg
-from ..evaluate import get_evaluate_cfg
+from pyretri.datasets import get_datasets_cfg
+from pyretri.models import get_model_cfg
+from pyretri.extract import get_extract_cfg
+from pyretri.index import get_index_cfg
+from pyretri.evaluate import get_evaluate_cfg
 
 
 def get_defaults_cfg() -> CfgNode:

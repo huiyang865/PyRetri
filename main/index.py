@@ -13,7 +13,7 @@ from pyretri.evaluate import build_evaluate_helper
 def parse_args():
     parser = argparse.ArgumentParser(description='A tool box for deep learning-based image retrieval')
     parser.add_argument('opts', default=None, nargs=argparse.REMAINDER)
-    parser.add_argument('--config_file', '-cfg', default=None, metavar='FILE', type=str, help='path to config file')
+    parser.add_argument('--config_file', '-cfg', default='../configs/caltech.yaml', metavar='FILE', type=str, help='path to config file')
     args = parser.parse_args()
     return args
 

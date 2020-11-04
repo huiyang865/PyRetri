@@ -54,7 +54,7 @@ def build_model(cfg: CfgNode) -> nn.Module:
         state_dict = torch.load(load_checkpoint)
 
     try:
-        model.load_state_dict(state_dict, strict=False)
+        model.load_state_dict(state_dict, strict=True)
     except:
         load_state_dict(model, state_dict)
 
